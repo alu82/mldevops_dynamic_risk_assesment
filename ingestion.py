@@ -5,14 +5,12 @@ import json
 from datetime import datetime
 
 
-
 #############Load config.json and get input and output paths
 with open('config.json','r') as f:
     config = json.load(f) 
 
 input_folder_path = config['input_folder_path']
 output_folder_path = config['output_folder_path']
-
 
 
 #############Function for data ingestion
@@ -41,7 +39,6 @@ def clean_output_folder(output_folder):
         os.remove(f"{output_folder}/ingestedfiles.txt")
     
     
-
 if __name__ == '__main__':
     merge_multiple_dataframe()
 
