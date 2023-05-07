@@ -25,7 +25,7 @@ def model_predictions():
     X=testdata.loc[:,['lastmonth_activity','lastyear_activity','number_of_employees']].values.reshape(-1, 3)
     y=testdata['exited'].values.reshape(-1, 1).ravel()
     predicted = model.predict(X)
-    return list(predicted)
+    return y, predicted
 
 ##################Function to get summary statistics
 def dataframe_summary():
