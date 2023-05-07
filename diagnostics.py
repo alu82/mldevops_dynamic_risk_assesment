@@ -16,14 +16,21 @@ test_data_path = os.path.join(config['test_data_path'])
 prod_deployment_path = os.path.join(config['prod_deployment_path']) 
 
 ##################Function to get model predictions
-def model_predictions():
+def model_predictions(testdata_path=None):
     #read the deployed model and a test dataset, calculate predictions
     with open(f"{os.getcwd()}/{prod_deployment_path}/trainedmodel.pkl", 'rb') as file:
         model = pickle.load(file)
+    
+    if testdata_path is None:
+        testdata_path = f"{os.getcwd()}/{test_data_path}/testdata.csv"
         
-    testdata = pd.read_csv(f"{os.getcwd()}/{test_data_path}/testdata.csv")
+    testdata = pd.read_csv(testdata_path)
     X=testdata.loc[:,['lastmonth_activity','lastyear_activity','number_of_employees']].values.reshape(-1, 3)
-    y=testdata['exited'].values.reshape(-1, 1).ravel()
+    if 'exited' in testdata.columns:
+        y=testdata['exited'].values.reshape(-1, 1).ravel()
+    else:
+        y = None
+        
     predicted = model.predict(X)
     return y, predicted
 

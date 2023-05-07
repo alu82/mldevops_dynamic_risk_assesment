@@ -36,6 +36,8 @@ def score_model():
     with open(f"{os.getcwd()}/{model_path}/latestscore.txt", 'w') as file:
         file.write(str(f1score))
     
+    return f1score
+    
 
 if __name__ == '__main__':
     score_model()
