@@ -1,0 +1,1 @@
+*/10  * * * * python3 ~/repos/mldevops_dynamic_risk_assesment/fullprocess.py

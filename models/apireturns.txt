@@ -1,0 +1,16 @@
+[0 1 1 0 1]
+0.3333333333333333
+[lastmonth_activity     5625.923077
+lastyear_activity       763.538462
+number_of_employees     457.461538
+exited                    0.500000
+dtype: float64, lastmonth_activity     425.0
+lastyear_activity       97.5
+number_of_employees     99.0
+exited                   0.5
+dtype: float64, lastmonth_activity     19444.774621
+lastyear_activity       2016.609357
+number_of_employees      800.604833
+exited                     0.509902
+dtype: float64]
+[[0.1958151439903304, 0.45211801599361934], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], b'Package   Version Latest  Type\n--------- ------- ------- -----\nPyQt5     5.15.7  5.15.9  wheel\nPyQt5-sip 12.11.0 12.12.1 wheel\nrequests  2.29.0  2.30.0  wheel\ntornado   6.3     6.3.1   wheel\nurllib3   1.26.15 2.0.2   wheel\n']

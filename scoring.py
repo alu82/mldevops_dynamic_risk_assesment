@@ -20,13 +20,16 @@ model_path = os.path.join(config['output_model_path'])
 
 
 #################Function for model scoring
-def score_model():
+def score_model(data_path=None):
     #this function should take a trained model, load test data, and calculate an F1 score for the model relative to the test data
     #it should write the result to the latestscore.txt file
     with open(f"{os.getcwd()}/{model_path}/trainedmodel.pkl", 'rb') as file:
         model = pickle.load(file)
     
-    testdata = pd.read_csv(f"{os.getcwd()}/{test_data_path}/testdata.csv")
+    if data_path is None:
+        data_path = f"{os.getcwd()}/{test_data_path}/testdata.csv"
+    
+    testdata = pd.read_csv(data_path)
     X=testdata.loc[:,['lastmonth_activity','lastyear_activity','number_of_employees']].values.reshape(-1, 3)
     y=testdata['exited'].values.reshape(-1, 1).ravel()
     
